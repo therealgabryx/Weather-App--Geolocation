@@ -8,7 +8,6 @@ window.addEventListener('load', () => {
     let temperatureFeelsLike = document.querySelector('.altspanFeel')
     let temperatureDescription = document.querySelector('.temperature-desc-txt')
 
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             lon = position.coords.longitude;
