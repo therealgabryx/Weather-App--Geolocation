@@ -14,17 +14,37 @@
 <body>
   <div class="location">
     <h1 class="location-city">City</h1>
-    <p class="location-icon">icon</p>
+    <p class="location-icon">(icon)</p>
+  </div>
+
+  <div class="timezone">
+    <span class="location-timezone">timezone</span>
   </div>
 
   <div class="temperature">
-    <h3 class="location-timezone">timezone</h3>
-    <h1 class="temperature-desc-brief">Brief desc</h1>
-    <div class="degree-section">
-      <h2 class="temperature-degree">34</h2>
-      <span>C</span>
-    </div>   
-    <div class="temperature-description">Its cooold</div>
+    <div class="degree-section row">
+      <h2 class="temperature-degree">0</h2>
+      <span>°C</span>
+    </div>
+  </div>
+
+  <div class="temp-moreinfo">
+
+    <div class="degree-section col">
+      <span class="span">humidity</span>
+      <span class="altspanHum">humid</span> 
+    </div>
+
+    <div class="degree-section col">
+      <span class="span">feels like</span>
+      <span class="altspanFeel">feel</span> 
+    </div>
+
+  </div>
+
+  <div class="temperature-desc">
+    <div id="temperature-desc-title">detailed info:</div>
+    <div class="altspan temperature-desc-txt">weather</div>
   </div>
 </body>
 

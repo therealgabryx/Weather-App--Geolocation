@@ -18,22 +18,79 @@ body {
   background: linear-gradient(rgb(47,150,163), rgb(48,62,143));  
 }
 
+
+/* General layout */
 .location, .temperature {
-  height: 30vh;
   width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.temperature {
+.location {
+  flex-wrap: wrap;
+}
+
+.timezone { 
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.temperature { 
   flex-direction: column;
+  cursor: pointer;
+}
+
+.temp-moreinfo { 
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* - - - - - - - - */ 
+
+
+.temp-moreinfo .span { 
+  font-size: 12.5px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.timezone span {
+  font-size: 12.5px;
+}
+
+#temperature-desc-title {
+  font-size: 12.5px;
+}
+
+.temperature-desc {
+  margin-top: 2vh;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
 .degree-section {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   cursor: pointer;
+}
+
+.degree-section .altspanHum, .degree-section .altspanFeel {
+  font-size: 20px;
 }
 
 .degree-section span {

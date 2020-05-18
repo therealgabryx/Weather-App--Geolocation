@@ -1,11 +1,13 @@
 window.addEventListener('load', () => {
     let lon, lat;
-    let temperatureDescription = document.querySelector('.temperature-description')
     let temperatureDegree = document.querySelector('.temperature-degree')
     let locationCity = document.querySelector('.location-city')
     let locationIcon = document.querySelector('.location-icon')
-    let temperatureDescBrief = document.querySelector('.temperature-desc-brief')
     let locationTimezone = document.querySelector('.location-timezone')
+    let temperatureHumidity = document.querySelector('.altspanHum')
+    let temperatureFeelsLike = document.querySelector('.altspanFeel')
+    let temperatureDescription = document.querySelector('.temperature-desc-txt')
+
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -22,17 +24,18 @@ window.addEventListener('load', () => {
             fetch(api)
             .then(response => {
                 return response.json()
-            })
-            .then(data => {
+            }) 
+            .then(data => { 
                 console.log("API fetch: openWeatherMap", data)
 
                 // const {} = data.weather; // create a 'weather' Const :>: contains Weather Condition (weather.main) and Description (weather.description) + icon: weather.icon
                 // const {} = data.main; // main.temp, main.temp_min main.temp_max, pressure, humidity, feels_like
 
                 const { main, description, icon } = data.weather[0];
-                const { temp } = data.main;
+                const { temp, feels_like, humidity} = data.main;
                 const { timezone } = data.timezone;
                 const city = data.name;
+
 
                 // Set DOM Elements from the API
 
@@ -40,21 +43,19 @@ window.addEventListener('load', () => {
                 // v //
                 // &units=metric   : Celsius
                 // &units=imperial : Fahrenheit
-                temperatureDescBrief.textContent = main
-                temperatureDescription.textContent = description
 
                 locationCity.textContent = city
 
-                locationIcon.textContent = icon
-                
-
-            
+                locationIcon.textContent = icon   
+                temperatureHumidity.textContent = humidity + "%"
+                temperatureFeelsLike.textContent = feels_like + "°C"
+                temperatureDescription.textContent = description
             });
 
             fetch(timezonedb)
             .then(response => {
                 return response.json()
-            })
+            }) 
             .then(data => {
                 console.log("API fetch: timezoneDB", data)
 
